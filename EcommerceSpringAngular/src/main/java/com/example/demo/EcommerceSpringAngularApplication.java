@@ -27,9 +27,9 @@ public class EcommerceSpringAngularApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
 
-		categoryRepository.save(new Category(1, "Computers", null, null));
-		categoryRepository.save(new Category(2, "Printers", null, null));
-		categoryRepository.save(new Category(3, "Smart phones", null, null));
+		categoryRepository.save(new Category(1, "Computers",null, null, null));
+		categoryRepository.save(new Category(2, "Printers", null, null,null));
+		categoryRepository.save(new Category(3, "Smart phones", null, null,null));
 
 		Random rnd = new Random();
 
@@ -44,6 +44,7 @@ public class EcommerceSpringAngularApplication implements CommandLineRunner {
 				p.setPromotion(rnd.nextBoolean());
 				p.setSelected(rnd.nextBoolean());
 				p.setCategory(c);
+				p.setPhotoName("unknown.png");
 				productRepository.save(p);
 
 			}
