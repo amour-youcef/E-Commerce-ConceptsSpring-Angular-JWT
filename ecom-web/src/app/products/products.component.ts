@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {CatalogueService} from '../services/catalogue.service';
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {HttpEventType, HttpResponse} from '@angular/common/http';
-// import {Product} from '../model/product.model';
+import {Product} from '../model/product.model';
 import {CaddyService} from '../services/caddy.service';
 import {AuthenticationService} from '../services/authentication.service';
 
@@ -118,14 +118,14 @@ export class ProductsComponent implements OnInit {
     this.selectedFiles = undefined
   }
 
-  // onAddProductToCaddy(p:Product) {
-  //   if(!this.authService.isAuthenticated()){
-  //     this.router.navigateByUrl("/login");
-  //   }
-  //   else{
-  //     this.caddyService.addProduct(p);
-  //   }
-  // }
+  onAddProductToCaddy(p:Product) {
+    if(!this.authService.isAuthenticated()){
+      this.router.navigateByUrl("/login");
+    }
+    else{
+      this.caddyService.addProduct(p);
+    }
+  }
 
   getTS() {
     return this.currentTime;
