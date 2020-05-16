@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
+
 import com.example.demo.dao.CategoryRepository;
 import com.example.demo.dao.ProductRepository;
 import com.example.demo.entities.Category;
@@ -18,6 +20,8 @@ public class EcommerceSpringAngularApplication implements CommandLineRunner {
 	private ProductRepository productRepository;
 	@Autowired
 	private CategoryRepository categoryRepository;
+	@Autowired
+	private RepositoryRestConfiguration repositoryRestConfiguration ;
 
 	public static void main(String[] args) {
 		SpringApplication.run(EcommerceSpringAngularApplication.class, args);
@@ -25,7 +29,8 @@ public class EcommerceSpringAngularApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		// TODO Auto-generated method stub
+		
+		repositoryRestConfiguration.exposeIdsFor(Product.class,Category.class);
 
 		categoryRepository.save(new Category(1, "Computers",null, null, null));
 		categoryRepository.save(new Category(2, "Printers", null, null,null));
