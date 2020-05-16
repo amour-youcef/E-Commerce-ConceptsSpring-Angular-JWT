@@ -13,8 +13,7 @@ import com.example.demo.entities.Product;
 @CrossOrigin("*")
 @RepositoryRestResource
 public interface ProductRepository extends JpaRepository<Product, Long> {
-	
-	@RestResource(path = "/selectedProducts")
+    @RestResource(path = "/selectedProducts")
     public List<Product> findBySelectedIsTrue();
     @RestResource(path = "/productsByKeyword")
     public List<Product> findByNameContains(@Param("mc") String mc);
@@ -22,5 +21,4 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     public List<Product> findByPromotionIsTrue();
     @RestResource(path = "/dispoProducts")
     public List<Product> findByAvailableIsTrue();
-	
 }
