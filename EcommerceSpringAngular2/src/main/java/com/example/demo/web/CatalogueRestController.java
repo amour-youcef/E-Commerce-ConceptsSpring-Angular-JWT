@@ -2,6 +2,7 @@ package com.example.demo.web;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
+
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,10 +13,12 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.dao.ProductRepository;
 import com.example.demo.entities.Product;
+
 @CrossOrigin("*")
 @RestController
 public class CatalogueRestController {
-    private ProductRepository productRepository;
+
+	private ProductRepository productRepository;
 
     public CatalogueRestController(ProductRepository productRepository) {
         this.productRepository = productRepository;
@@ -32,4 +35,5 @@ public class CatalogueRestController {
        Files.write(Paths.get(System.getProperty("user.home")+"/ecom/products/"+p.getPhotoName()),file.getBytes());
        productRepository.save(p);
     }
+
 }

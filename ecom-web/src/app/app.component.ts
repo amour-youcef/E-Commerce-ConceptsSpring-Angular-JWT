@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CatalogueService} from './services/catalogue.service';
 import {Router} from '@angular/router';
+import { AuthenticationService } from './services/authentication.service';
 // import {CaddyService} from './services/caddy.service';
 // import {AuthenticationService} from './services/authentication.service';
 
@@ -16,14 +17,14 @@ export class AppComponent implements OnInit{
   constructor(public catService:CatalogueService,
               private  router:Router,
               // public caddyService:CaddyService,
-              // public authService:AuthenticationService
+               public authService:AuthenticationService
               ){}
 
   ngOnInit(): void {
     this.getCategories();
-    // this.authService.loadUser();
-    // if(this.authService.isAuthenticated())
-    //  this.caddyService.loadCaddyFromLocalStorage();
+    this.authService.loadUser();
+    //if(this.authService.isAuthenticated())
+    //this.caddyService.loadCaddyFromLocalStorage();
   }
 
   private getCategories() {

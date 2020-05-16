@@ -9,4 +9,6 @@ import com.example.demo.entities.Category;
 @CrossOrigin("*")
 @RepositoryRestResource
 public interface CategoryRepository extends JpaRepository<Category, Long> {
+
+	
 }

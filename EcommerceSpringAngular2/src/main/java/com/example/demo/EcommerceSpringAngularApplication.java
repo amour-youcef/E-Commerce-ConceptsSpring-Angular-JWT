@@ -27,27 +27,33 @@ public class EcommerceSpringAngularApplication implements CommandLineRunner {
 		SpringApplication.run(EcommerceSpringAngularApplication.class, args);
 	}
 
-	 @Override
-	    public void run(String... args) throws Exception {
+	@Override
+	public void run(String... args) throws Exception {
+		
+		repositoryRestConfiguration.exposeIdsFor(Product.class,Category.class);
 
-	        repositoryRestConfiguration.exposeIdsFor(Product.class,Category.class);
+		categoryRepository.save(new Category(1, "Computers",null, null, null));
+		categoryRepository.save(new Category(2, "Printers", null, null,null));
+		categoryRepository.save(new Category(3, "Smart phones", null, null,null));
 
-	        categoryRepository.save(new Category(null,"Computers",null,null,null));
-	        categoryRepository.save(new Category(null,"Printers",null,null,null));
-	        categoryRepository.save(new Category(null,"Smart phones",null,null,null));
-	        Random rnd=new Random();
-	        categoryRepository.findAll().forEach(c->{
-	            for (int i = 0; i <10 ; i++) {
-	                Product p=new Product();
-	                p.setName(RandomString.make(18));
-	                p.setCurrentPrice(100+rnd.nextInt(10000));
-	                p.setAvailable(rnd.nextBoolean());
-	                p.setPromotion(rnd.nextBoolean());
-	                p.setSelected(rnd.nextBoolean());
-	                p.setCategory(c);
-	                p.setPhotoName("unknown.png");
-	                productRepository.save(p);
-	            }
-	        });
-	    }
+		Random rnd = new Random();
+
+		categoryRepository.findAll().forEach(c -> {
+
+			for (int i = 0; i < 10; i++) {
+
+				Product p = new Product();
+				p.setName(RandomString.make(18));
+				p.setCurrentPrice(100 + rnd.nextInt(10000));
+				p.setAvailable(rnd.nextBoolean());
+				p.setPromotion(rnd.nextBoolean());
+				p.setSelected(rnd.nextBoolean());
+				p.setCategory(c);
+				p.setPhotoName("unknown.png");
+				productRepository.save(p);
+
+			}
+		});
+	}
+
 }
