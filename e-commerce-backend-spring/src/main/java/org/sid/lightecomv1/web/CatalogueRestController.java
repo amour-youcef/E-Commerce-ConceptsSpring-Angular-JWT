@@ -30,8 +30,8 @@ public class CatalogueRestController {
     }
     
 //    test
-    @RequestMapping(value= {"/"})
-    public String home() {
-    	return"home";
-    }
+//    @RequestMapping(value= {"/"})
+//    public String home() {
+//    	return"home";
+//    }
 }
