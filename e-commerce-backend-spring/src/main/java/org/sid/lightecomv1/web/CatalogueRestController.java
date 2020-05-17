@@ -1,5 +1,6 @@
 package org.sid.lightecomv1.web;
 
+import org.sid.lightecomv1.TestJson;
 import org.sid.lightecomv1.dao.ProductRepository;
 import org.sid.lightecomv1.entities.Product;
 import org.springframework.http.MediaType;
@@ -8,6 +9,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 @CrossOrigin("*")
 @RestController
 public class CatalogueRestController {
@@ -27,6 +30,21 @@ public class CatalogueRestController {
        p.setPhotoName(file.getOriginalFilename());
        Files.write(Paths.get(System.getProperty("user.home")+"/ecom/products/"+p.getPhotoName()),file.getBytes());
        productRepository.save(p);
+    }
+    
+    @GetMapping(value= {"/HelloWorld"})
+    public TestJson getTestJson() {
+    	return  new TestJson("BAHRIA", "Mohammed");
+    }
+    
+    @GetMapping(value= {"/getJsons"})
+    public List<TestJson> getListTestJson() {
+    	List<TestJson> list = new ArrayList();
+    	list.add(new TestJson("BAHRIA", "Mohammed"));
+    	list.add(new TestJson("Youssouf", "AMOUR"));
+
+    	return list;
+    			
     }
     
 //    test
