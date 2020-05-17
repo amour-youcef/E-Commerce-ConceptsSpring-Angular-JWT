@@ -38,22 +38,22 @@ public class LightEcomV1Application extends SpringBootServletInitializer {
 
         repositoryRestConfiguration.exposeIdsFor(Product.class,Category.class);
 
-//        categoryRepository.save(new Category(null,"Computers",null,null,null));
-//        categoryRepository.save(new Category(null,"Printers",null,null,null));
-//        categoryRepository.save(new Category(null,"Smart phones",null,null,null));
-//        Random rnd=new Random();
-//        categoryRepository.findAll().forEach(c->{
-//            for (int i = 0; i <10 ; i++) {
-//                Product p=new Product();
-//                p.setName(RandomString.make(18));
-//                p.setCurrentPrice(100+rnd.nextInt(10000));
-//                p.setAvailable(rnd.nextBoolean());
-//                p.setPromotion(rnd.nextBoolean());
-//                p.setSelected(rnd.nextBoolean());
-//                p.setCategory(c);
-//                p.setPhotoName("img01.png");
-//                productRepository.save(p);
-//            }
-//        });
-//    }
+        categoryRepository.save(new Category(null,"Computers",null,null,null));
+        categoryRepository.save(new Category(null,"Printers",null,null,null));
+        categoryRepository.save(new Category(null,"Smart phones",null,null,null));
+        Random rnd=new Random();
+        categoryRepository.findAll().forEach(c->{
+            for (int i = 0; i <10 ; i++) {
+                Product p=new Product();
+                p.setName(RandomString.make(18));
+                p.setCurrentPrice(100+rnd.nextInt(10000));
+                p.setAvailable(rnd.nextBoolean());
+                p.setPromotion(rnd.nextBoolean());
+                p.setSelected(rnd.nextBoolean());
+                p.setCategory(c);
+                p.setPhotoName("img01.png");
+                productRepository.save(p);
+            }
+        });
+    }
 }
