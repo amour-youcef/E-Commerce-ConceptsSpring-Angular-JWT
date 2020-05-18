@@ -1,14 +1,28 @@
-<div *ngIf="products">
-  <div><h3>{{title}}</h3></div>
-  <div *ngFor="let p of products._embedded.products">
-    <div class="col-md-4">
-    <div class="panel panel-default heigted">
-      <div class="panel-heading">{{p.name}}</div>
-      <div class="panel-body">
-        <div class="p">
-         <img class="img-thumbnail img-rounded btn" (click)="onProductDetails(p)" [src]="this.catService.host+'/photoProduct/'+p.id+'?ts='+getTS()"/> 
-      </div>
-        <div *ngIf="this.authService.isAdmin()">
+<!-- <mat-grid-list cols="3" rowHeight="800px">
+  <mat-grid-tile *ngFor="let p of products._embedded.products">
+
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{p.name}}</mat-card-title>
+        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+      </mat-card-header>
+
+      <img mat-card-image class="p" (click)="onProductDetails(p)"
+        [src]="this.catService.host+'/photoProduct/'+p.id+'?ts='+getTS()" alt={{p.name}}>
+
+      <mat-card-content> -->
+        <!-- <p>
+          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+          bred for hunting.
+        </p> -->
+      <!-- </mat-card-content>
+      <mat-card-actions *ngIf="this.authService.isAdmin()"> -->
+
+      
+        
+        <!-- <div *ngIf="this.authService.isAdmin()">
           <button (click)="onEditPhoto(p)">
             <span class="glyphicon glyphicon-edit"></span>
           </button>
@@ -17,38 +31,77 @@
             <button class="btn btn-success" (click)="uploadPhoto()">Upload</button>
             {{progress}}
           </p>
-        </div>
-        <div>
-          {{p.description}}
-        </div>
-        <div>
-          <label>Price : {{p.currentPrice|number:'0.00'}}</label>
-        </div>
-        <div>
-        <span *ngIf="p.promotion">
-                <img src="assets/images/promo.png" class="img-thumbnail img-circle" height="30">
-              </span>
-          <span *ngIf="p.selected">
-                <img src="assets/images/favorite.png" class="img-thumbnail img-circle" height="30">
-              </span>
-          <span *ngIf="p.available">
-                <img src="assets/images/available.png" class="img-thumbnail img-circle"  height="30">
-              </span>
-        </div>
-        <div>
-          <form #f="ngForm" (ngSubmit)="onAddProductToCaddy(p)">
-            <label class="control-label">Quantité :</label>
-            <input type="number" name="quantity" [(ngModel)]="p.quantity" ngModel style="width: 40px">
-            <button>
-              <img src="assets/images/caddy.png">
+        </div> -->
+
+
+        <!-- <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+      </mat-card-actions>
+    </mat-card>
+
+
+  </mat-grid-tile>
+</mat-grid-list> -->
+
+
+
+
+
+<div *ngIf="products">
+  <div>
+    <h3>{{title}}</h3>
+  </div>
+  <div *ngFor="let p of products._embedded.products">
+
+    <div class="col-md-4">
+      <div class="panel panel-default heigted">
+        <div class="panel-heading">{{p.name}}</div>
+        <div class="panel-body">
+          <div class="p">
+            <img class="img-thumbnail img-rounded btn" (click)="onProductDetails(p)"
+              [src]="this.catService.host+'/photoProduct/'+p.id+'?ts='+getTS()" />
+          </div>
+          <div *ngIf="this.authService.isAdmin()">
+            <button (click)="onEditPhoto(p)">
+              <span class="glyphicon glyphicon-edit"></span>
             </button>
-          </form>
+            <p *ngIf="editPhoto && currentProduct==p">
+              <input type="file" (change)="onSelectedFile($event)">
+              <button class="btn btn-success" (click)="uploadPhoto()">Upload</button>
+              {{progress}}
+            </p>
+          </div>
+          <div>
+            {{p.description}}
+          </div>
+          <div>
+            <label>Price : {{p.currentPrice|number:'0.00'}}</label>
+          </div>
+          <div>
+            <span *ngIf="p.promotion">
+              <img src="assets/images/promo.png" class="img-thumbnail img-circle" height="30">
+            </span>
+            <span *ngIf="p.selected">
+              <img src="assets/images/favorite.png" class="img-thumbnail img-circle" height="30">
+            </span>
+            <span *ngIf="p.available">
+              <img src="assets/images/available.png" class="img-thumbnail img-circle" height="30">
+            </span>
+          </div>
+          <div>
+            <form #f="ngForm" (ngSubmit)="onAddProductToCaddy(p)">
+              <label class="control-label">Quantité :</label>
+              <input type="number" name="quantity" [(ngModel)]="p.quantity" ngModel style="width: 40px">
+              <button>
+                <img src="assets/images/caddy.png">
+              </button>
+            </form>
+          </div>
         </div>
+
+
+
       </div>
-
-
-
-    </div>
     </div>
   </div>
 </div>

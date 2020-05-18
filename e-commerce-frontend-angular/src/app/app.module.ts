@@ -11,6 +11,15 @@ import { CaddyComponent } from './caddy/caddy.component';
 import { ClientComponent } from './client/client.component';
 import { ProductComponent } from './product/product.component';
 import { PaymentComponent } from './payment/payment.component';
+import { NavbarComponent } from './component/navbar/navbar.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatListModule} from '@angular/material/list';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -20,11 +29,22 @@ import { PaymentComponent } from './payment/payment.component';
     CaddyComponent,
     ClientComponent,
     ProductComponent,
-    PaymentComponent
+    PaymentComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, HttpClientModule,FormsModule
+    AppRoutingModule,
+     HttpClientModule,
+     FormsModule,
+     MatToolbarModule,
+     BrowserAnimationsModule,
+     MatIconModule,
+     MatButtonModule,
+     MatListModule,
+     MatSidenavModule,
+     MatGridListModule,
+     MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

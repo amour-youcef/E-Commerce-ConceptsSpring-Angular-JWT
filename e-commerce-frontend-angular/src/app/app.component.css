@@ -1,3 +1,41 @@
+
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+  
+  /* border: 1px solid #ddd; */
+}
 .clickable{
   cursor: pointer;
+  background-color: #7B1FA2; 
+}
+
+.spacer{
+  flex: 1 1 auto ;
+}
+
+mat-toolbar{
+  background: aqua;
+}
+
+.example-container {
+  width: 100%;
+  min-height: 100vh;
+  background: white;
+  /* margin: 10px; */
+  /* border: 1px solid #555; */
+}
+mat-drawer{
+  background: wheat;
+  width: 350px;
+}
+mat-drawer-content{
+  background: gray;
+}
+
+
+mat-grid-tile {
+  background: lightblue;
 }
