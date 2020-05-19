@@ -6,15 +6,18 @@ import {CaddyComponent} from './caddy/caddy.component';
 import {ClientComponent} from './client/client.component';
 import {ProductComponent} from './product/product.component';
 import {PaymentComponent} from './payment/payment.component';
+import { CarteComponent } from './carte/carte.component';
 
 const routes: Routes = [
   {path:'products/:p1/:p2',component:ProductsComponent},
   {path:'',redirectTo:'products/1/0',pathMatch:'full'},
   {path:'login', component:LoginComponent},
   {path:'caddy', component:CaddyComponent},
+  {path:'carte', component:CarteComponent},
   {path:'client', component:ClientComponent},
   {path:'product/:id', component:ProductComponent},
-  {path:'payment/:orderID', component:PaymentComponent}
+  {path:'payment/:orderID', component:PaymentComponent},
+ 
 ];
 
 @NgModule({

@@ -20,6 +20,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCardModule} from '@angular/material/card';
+import { CarteComponent } from './carte/carte.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {MatCardModule} from '@angular/material/card';
     ClientComponent,
     ProductComponent,
     PaymentComponent,
-    NavbarComponent
+    NavbarComponent,
+    CarteComponent
   ],
   imports: [
     BrowserModule,

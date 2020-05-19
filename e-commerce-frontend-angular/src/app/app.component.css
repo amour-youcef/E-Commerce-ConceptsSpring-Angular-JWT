@@ -32,10 +32,18 @@ mat-drawer{
   width: 350px;
 }
 mat-drawer-content{
-  background: gray;
+  height: 800px;
+  background-image: url("./../assets/images/main-background.jpg");
+  background-size: 100% 100%; 
 }
 
 
 mat-grid-tile {
   background: lightblue;
+}
+
+
+
+li{
+  list-style: none
 }
